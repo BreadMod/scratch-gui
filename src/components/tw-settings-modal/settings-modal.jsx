@@ -1,17 +1,22 @@
-import {defineMessages, FormattedMessage, intlShape, injectIntl} from 'react-intl';
-import PropTypes from 'prop-types';
-import React from 'react';
-import classNames from 'classnames';
-import bindAll from 'lodash.bindall';
-import Box from '../box/box.jsx';
-import Modal from '../../containers/modal.jsx';
-import FancyCheckbox from '../tw-fancy-checkbox/checkbox.jsx';
-import Input from '../forms/input.jsx';
-import BufferedInputHOC from '../forms/buffered-input-hoc.jsx';
-import DocumentationLink from '../tw-documentation-link/documentation-link.jsx';
-import styles from './settings-modal.css';
-import helpIcon from './help-icon.svg';
-import {APP_NAME} from '../../lib/brand.js';
+import {
+    defineMessages,
+    FormattedMessage,
+    intlShape,
+    injectIntl,
+} from "react-intl";
+import PropTypes from "prop-types";
+import React from "react";
+import classNames from "classnames";
+import bindAll from "lodash.bindall";
+import Box from "../box/box.jsx";
+import Modal from "../../containers/modal.jsx";
+import FancyCheckbox from "../tw-fancy-checkbox/checkbox.jsx";
+import Input from "../forms/input.jsx";
+import BufferedInputHOC from "../forms/buffered-input-hoc.jsx";
+import DocumentationLink from "../tw-documentation-link/documentation-link.jsx";
+import styles from "./settings-modal.css";
+import helpIcon from "./help-icon.svg";
+import { APP_NAME } from "../../lib/brand.js";
 
 /* eslint-disable react/no-multi-comp */
 
@@ -19,20 +24,20 @@ const BufferedInput = BufferedInputHOC(Input);
 
 const messages = defineMessages({
     title: {
-        defaultMessage: 'Advanced Settings',
-        description: 'Title of settings modal',
-        id: 'tw.settingsModal.title'
+        defaultMessage: "Advanced Settings",
+        description: "Title of settings modal",
+        id: "tw.settingsModal.title",
     },
     help: {
-        defaultMessage: 'Click for help',
-        description: 'Hover text of help icon in settings',
-        id: 'tw.settingsModal.help'
-    }
+        defaultMessage: "Click for help",
+        description: "Hover text of help icon in settings",
+        id: "tw.settingsModal.help",
+    },
 });
 
-const LearnMore = props => (
+const LearnMore = (props) => (
     <React.Fragment>
-        {' '}
+        {" "}
         <DocumentationLink {...props}>
             <FormattedMessage
                 defaultMessage="Learn more."
@@ -43,33 +48,31 @@ const LearnMore = props => (
 );
 
 class UnwrappedSetting extends React.Component {
-    constructor (props) {
+    constructor(props) {
         super(props);
-        bindAll(this, [
-            'handleClickHelp'
-        ]);
+        bindAll(this, ["handleClickHelp"]);
         this.state = {
-            helpVisible: false
+            helpVisible: false,
         };
     }
-    componentDidUpdate (prevProps) {
+    componentDidUpdate(prevProps) {
         if (this.props.active && !prevProps.active) {
             // eslint-disable-next-line react/no-did-update-set-state
             this.setState({
-                helpVisible: true
+                helpVisible: true,
             });
         }
     }
-    handleClickHelp () {
-        this.setState(prevState => ({
-            helpVisible: !prevState.helpVisible
+    handleClickHelp() {
+        this.setState((prevState) => ({
+            helpVisible: !prevState.helpVisible,
         }));
     }
-    render () {
+    render() {
         return (
             <div
                 className={classNames(styles.setting, {
-                    [styles.active]: this.props.active
+                    [styles.active]: this.props.active,
                 })}
             >
                 <div className={styles.label}>
@@ -79,16 +82,15 @@ class UnwrappedSetting extends React.Component {
                         onClick={this.handleClickHelp}
                         title={this.props.intl.formatMessage(messages.help)}
                     >
-                        <img
-                            src={helpIcon}
-                            draggable={false}
-                        />
+                        <img src={helpIcon} draggable={false} />
                     </button>
                 </div>
                 {this.state.helpVisible && (
                     <div className={styles.detail}>
                         {this.props.help}
-                        {this.props.slug && <LearnMore slug={this.props.slug} />}
+                        {this.props.slug && (
+                            <LearnMore slug={this.props.slug} />
+                        )}
                     </div>
                 )}
                 {this.props.secondary}
@@ -102,11 +104,11 @@ UnwrappedSetting.propTypes = {
     help: PropTypes.node,
     primary: PropTypes.node,
     secondary: PropTypes.node,
-    slug: PropTypes.string
+    slug: PropTypes.string,
 };
 const Setting = injectIntl(UnwrappedSetting);
 
-const BooleanSetting = ({value, onChange, label, ...props}) => (
+const BooleanSetting = ({ value, onChange, label, ...props }) => (
     <Setting
         {...props}
         active={value}
@@ -125,10 +127,10 @@ const BooleanSetting = ({value, onChange, label, ...props}) => (
 BooleanSetting.propTypes = {
     onChange: PropTypes.func.isRequired,
     value: PropTypes.bool.isRequired,
-    label: PropTypes.node.isRequired
+    label: PropTypes.node.isRequired,
 };
 
-const HighQualityPen = props => (
+const HighQualityPen = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -150,7 +152,7 @@ const HighQualityPen = props => (
     />
 );
 
-const CustomFPS = props => (
+const CustomFPS = (props) => (
     <BooleanSetting
         value={props.framerate !== 30}
         onChange={props.onChange}
@@ -169,17 +171,14 @@ const CustomFPS = props => (
                 id="tw.settingsModal.fpsHelp"
                 values={{
                     customFramerate: (
-                        <a
-                            onClick={props.onCustomizeFramerate}
-                            tabIndex="0"
-                        >
+                        <a onClick={props.onCustomizeFramerate} tabIndex="0">
                             <FormattedMessage
                                 defaultMessage="Click to use a framerate other than 30 or 60"
                                 description="FPS settings help"
                                 id="tw.settingsModal.fpsHelp.customFramerate"
                             />
                         </a>
-                    )
+                    ),
                 }}
             />
         }
@@ -189,10 +188,10 @@ const CustomFPS = props => (
 CustomFPS.propTypes = {
     framerate: PropTypes.number,
     onChange: PropTypes.func,
-    onCustomizeFramerate: PropTypes.func
+    onCustomizeFramerate: PropTypes.func,
 };
 
-const Interpolation = props => (
+const Interpolation = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -214,7 +213,7 @@ const Interpolation = props => (
     />
 );
 
-const InfiniteClones = props => (
+const InfiniteClones = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -235,7 +234,7 @@ const InfiniteClones = props => (
     />
 );
 
-const RemoveFencing = props => (
+const RemoveFencing = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -257,7 +256,7 @@ const RemoveFencing = props => (
     />
 );
 
-const RemoveMiscLimits = props => (
+const RemoveMiscLimits = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -278,7 +277,7 @@ const RemoveMiscLimits = props => (
     />
 );
 
-const WarpTimer = props => (
+const WarpTimer = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -300,7 +299,7 @@ const WarpTimer = props => (
     />
 );
 
-const DisableCompiler = props => (
+const DisableCompiler = (props) => (
     <BooleanSetting
         {...props}
         label={
@@ -317,7 +316,7 @@ const DisableCompiler = props => (
                 description="Disable Compiler help"
                 id="tw.settingsModal.disableCompilerHelp"
                 values={{
-                    APP_NAME
+                    APP_NAME,
                 }}
             />
         }
@@ -330,11 +329,11 @@ const CustomStageSize = ({
     stageWidth,
     onStageWidthChange,
     stageHeight,
-    onStageHeightChange
+    onStageHeightChange,
 }) => (
     <Setting
         active={customStageSizeEnabled}
-        primary={(
+        primary={
             <div className={classNames(styles.label, styles.customStageSize)}>
                 <FormattedMessage
                     defaultMessage="Custom Stage Size:"
@@ -350,7 +349,7 @@ const CustomStageSize = ({
                     max="1024"
                     step="1"
                 />
-                <span>{'×'}</span>
+                <span>{"×"}</span>
                 <BufferedInput
                     value={stageHeight}
                     onSubmit={onStageHeightChange}
@@ -361,7 +360,7 @@ const CustomStageSize = ({
                     step="1"
                 />
             </div>
-        )}
+        }
         secondary={
             (stageWidth >= 1000 || stageHeight >= 1000) && (
                 <div className={styles.warning}>
@@ -375,14 +374,14 @@ const CustomStageSize = ({
                 </div>
             )
         }
-        help={(
+        help={
             <FormattedMessage
                 // eslint-disable-next-line max-len
                 defaultMessage="Changes the size of the Scratch stage from 480x360 to something else. Try 640x360 to make the stage widescreen. Very few projects will handle this properly."
                 description="Custom Stage Size option"
                 id="tw.settingsModal.customStageSizeHelp"
             />
-        )}
+        }
         slug="custom-stage-size"
     />
 );
@@ -391,16 +390,13 @@ CustomStageSize.propTypes = {
     stageWidth: PropTypes.number,
     onStageWidthChange: PropTypes.func,
     stageHeight: PropTypes.number,
-    onStageHeightChange: PropTypes.func
+    onStageHeightChange: PropTypes.func,
 };
 
-const StoreProjectOptions = ({onStoreProjectOptions}) => (
+const StoreProjectOptions = ({ onStoreProjectOptions }) => (
     <div className={styles.setting}>
         <div>
-            <button
-                onClick={onStoreProjectOptions}
-                className={styles.button}
-            >
+            <button onClick={onStoreProjectOptions} className={styles.button}>
                 <FormattedMessage
                     defaultMessage="Store settings in project"
                     description="Button in settings modal"
@@ -410,29 +406,32 @@ const StoreProjectOptions = ({onStoreProjectOptions}) => (
             <p>
                 <FormattedMessage
                     // eslint-disable-next-line max-len
-                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when TurboWarp loads this project. Warp timer and disable compiler will not be saved."
+                    defaultMessage="Stores the selected settings in the project so they will be automatically applied when {APP_NAME} loads this project. Warp timer and disable compiler will not be saved."
                     description="Help text for the store settings in project button"
                     id="tw.settingsModal.storeProjectOptionsHelp"
+                    values={{
+                        APP_NAME,
+                    }}
                 />
             </p>
         </div>
     </div>
 );
 StoreProjectOptions.propTypes = {
-    onStoreProjectOptions: PropTypes.func
+    onStoreProjectOptions: PropTypes.func,
 };
 
-const Header = props => (
+const Header = (props) => (
     <div className={styles.header}>
         {props.children}
         <div className={styles.divider} />
     </div>
 );
 Header.propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
 };
 
-const SettingsModalComponent = props => (
+const SettingsModalComponent = (props) => (
     <Modal
         className={styles.modalContent}
         onRequestClose={props.onClose}
@@ -490,20 +489,12 @@ const SettingsModalComponent = props => (
                     id="tw.settingsModal.dangerZone"
                 />
             </Header>
-            {!props.isEmbedded && (
-                <CustomStageSize
-                    {...props}
-                />
-            )}
+            {!props.isEmbedded && <CustomStageSize {...props} />}
             <DisableCompiler
                 value={props.disableCompiler}
                 onChange={props.onDisableCompilerChange}
             />
-            {!props.isEmbedded && (
-                <StoreProjectOptions
-                    {...props}
-                />
-            )}
+            {!props.isEmbedded && <StoreProjectOptions {...props} />}
         </Box>
     </Modal>
 );
@@ -528,7 +519,7 @@ SettingsModalComponent.propTypes = {
     warpTimer: PropTypes.bool,
     onWarpTimerChange: PropTypes.func,
     disableCompiler: PropTypes.bool,
-    onDisableCompilerChange: PropTypes.func
+    onDisableCompilerChange: PropTypes.func,
 };
 
 export default injectIntl(SettingsModalComponent);
