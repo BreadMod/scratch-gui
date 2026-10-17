@@ -1,11 +1,11 @@
 const guiColors = {
-    'motion-primary': '#ff4c4c',
-    'motion-primary-transparent': '#ff4c4ce6',
-    'motion-tertiary': '#cc3333',
+    'motion-primary': 'hsl(0, 100%, 65%)',
+    'motion-primary-transparent': 'hsla(0, 100%, 65%, 0.90)',
+    'motion-tertiary': 'hsl(0, 60%, 50%)',
 
-    'looks-secondary': '#ff4c4c',
-    'looks-transparent': '#ff4d4d59',
-    'looks-light-transparent': '#ff4d4d26',
+    'looks-secondary': 'hsl(0, 100%, 65%)',
+    'looks-transparent': 'hsla(0, 100%, 65%, 0.35)',
+    'looks-light-transparent': 'hsla(0, 100%, 65%, 0.15)',
     'looks-secondary-dark': 'hsla(0, 42%, 51%, 1)',
 
     'extensions-primary': 'hsla(10, 85%, 65%, 1)',
@@ -13,12 +13,12 @@ const guiColors = {
     'extensions-transparent': 'hsla(10, 85%, 65%, 0.35)',
     'extensions-light': 'hsla(10, 57%, 85%, 1)',
 
-    'drop-highlight': '#ff8c8c'
+    'drop-highlight': 'hsl(0, 100%, 78%)'
 };
 
 const blockColors = {
-    checkboxActiveBackground: '#ff4c4c',
-    checkboxActiveBorder: '#cc3333'
+    checkboxActiveBackground: 'hsl(0, 100%, 65%)',
+    checkboxActiveBorder: 'hsl(0, 60%, 50%)'
 };
 
 export {
