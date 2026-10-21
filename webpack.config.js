@@ -83,7 +83,21 @@ const base = {
                     ['react-intl', {
                         messagesDir: './translations/messages/'
                     }]],
-                presets: ['@babel/preset-env', '@babel/preset-react']
+                presets: [
+                    ['@babel/preset-env', {
+                        include: [
+                            'proposal-optional-chaining',
+                            'proposal-nullish-coalescing-operator',
+                            'proposal-logical-assignment-operators',
+                            'proposal-numeric-separator',
+                            'proposal-class-properties',
+                            'proposal-private-methods',
+                            'proposal-private-property-in-object',
+                            'proposal-class-static-block'
+                    ]
+    }],
+    '@babel/preset-react'
+]
             }
         },
         {

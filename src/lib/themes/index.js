@@ -1,8 +1,16 @@
 import defaultsDeep from "lodash.defaultsdeep";
 
-import * as accentPurple from "./accent/purple";
-import * as accentBlue from "./accent/blue";
-import * as accentRed from "./accent/red";
+import * as accentMotion from "./accent/motion";
+import * as accentLooks from "./accent/looks";
+import * as accentSounds from "./accent/sounds";
+import * as accentEvents from "./accent/events";
+import * as accentControl from "./accent/control";
+import * as accentSensing from "./accent/sensing"
+import * as accentOperators from "./accent/operators";
+import * as accentVariables from "./accent/variables";
+import * as accentLists from "./accent/lists";
+import * as accentMyBlocks from "./accent/my_blocks";
+import * as accentExtensions from "./accent/extensions";
 import * as accentRainbow from "./accent/rainbow";
 import * as accentBread from "./accent/bread";
 
@@ -13,17 +21,33 @@ import * as blocksThree from "./blocks/three";
 import * as blocksHighContrast from "./blocks/high-contrast";
 import * as blocksDark from "./blocks/dark";
 
+const ACCENT_MOTION = "motion";
+const ACCENT_LOOKS = "looks";
+const ACCENT_SOUNDS = "sound";
+const ACCENT_EVENTS = "events";
+const ACCENT_CONTROL = "control";
+const ACCENT_SENSING = "sensing";
+const ACCENT_OPERATORS = "operators";
+const ACCENT_VARIABLES = "variables";
+const ACCENT_LISTS = "lists";
+const ACCENT_MY_BLOCKS = "my_blocks";
+const ACCENT_EXTENSIONS = "extensions";
 const ACCENT_BREAD = "bread";
-const ACCENT_PURPLE = "purple";
-const ACCENT_BLUE = "blue";
-const ACCENT_RED = "red";
 const ACCENT_RAINBOW = "rainbow";
 const ACCENT_MAP = {
     [ACCENT_BREAD]: accentBread,
-    [ACCENT_PURPLE]: accentPurple,
-    [ACCENT_BLUE]: accentBlue,
-    [ACCENT_RED]: accentRed,
     [ACCENT_RAINBOW]: accentRainbow,
+    [ACCENT_MOTION]: accentMotion,
+    [ACCENT_LOOKS]: accentLooks,
+    [ACCENT_SOUNDS]: accentSounds,
+    [ACCENT_EVENTS]: accentEvents,
+    [ACCENT_CONTROL]: accentControl,
+    [ACCENT_SENSING]: accentSensing,
+    [ACCENT_OPERATORS]: accentOperators,
+    [ACCENT_VARIABLES]: accentVariables,
+    [ACCENT_LISTS]: accentLists,
+    [ACCENT_MY_BLOCKS]: accentMyBlocks,
+    [ACCENT_EXTENSIONS]: accentExtensions,
 };
 const ACCENT_DEFAULT = ACCENT_BREAD;
 
@@ -163,10 +187,18 @@ export {
     Theme,
     defaultBlockColors,
     ACCENT_BREAD,
-    ACCENT_RED,
-    ACCENT_PURPLE,
-    ACCENT_BLUE,
     ACCENT_RAINBOW,
+    ACCENT_MOTION,
+    ACCENT_LOOKS,
+    ACCENT_SOUNDS,
+    ACCENT_EVENTS,
+    ACCENT_CONTROL,
+    ACCENT_SENSING,
+    ACCENT_OPERATORS,
+    ACCENT_VARIABLES,
+    ACCENT_LISTS,
+    ACCENT_MY_BLOCKS,
+    ACCENT_EXTENSIONS,
     ACCENT_MAP,
     GUI_LIGHT,
     GUI_DARK,

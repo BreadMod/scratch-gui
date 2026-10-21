@@ -9,11 +9,19 @@ import dropdownCaret from "./dropdown-caret.svg";
 import { MenuItem, Submenu } from "../menu/menu.jsx";
 import {
     ACCENT_BREAD,
-    ACCENT_BLUE,
-    ACCENT_MAP,
-    ACCENT_PURPLE,
-    ACCENT_RED,
     ACCENT_RAINBOW,
+    ACCENT_MAP,
+    ACCENT_MOTION,
+    ACCENT_LOOKS,
+    ACCENT_SOUNDS,
+    ACCENT_EVENTS,
+    ACCENT_CONTROL,
+    ACCENT_SENSING,
+    ACCENT_OPERATORS,
+    ACCENT_VARIABLES,
+    ACCENT_LISTS,
+    ACCENT_MY_BLOCKS,
+    ACCENT_EXTENSIONS,
     Theme,
 } from "../../lib/themes/index.js";
 import {
@@ -31,30 +39,80 @@ const options = defineMessages({
         defaultMessage: "Bread",
         description:
             "Name of the bread color scheme, used by BreadMod by default.",
-        id: "tw.accent.bread",
+        id: "bm.accent.bread",
     },
-    [ACCENT_RED]: {
-        defaultMessage: "Red",
+    [ACCENT_MOTION]: {
+        defaultMessage: "Motion",
         description:
-            "Name of the red color scheme, used by TurboWarp by default.",
-        id: "tw.accent.red",
+            "Name of the Motion color scheme, should be the same as the palette name.",
+        id: "bm.accent.motion"
     },
-    [ACCENT_PURPLE]: {
-        defaultMessage: "Purple",
-        description: "Name of the purple color scheme. Matches modern Scratch.",
-        id: "tw.accent.purple",
-    },
-    [ACCENT_BLUE]: {
-        defaultMessage: "Blue",
+    [ACCENT_LOOKS]: {
+        defaultMessage: "Looks",
         description:
-            "Name of the blue color scheme. Matches Scratch before the high contrast update.",
-        id: "tw.accent.blue",
+            "Name of the Looks color scheme, should be the same as the palette name.",
+        id: "bm.accent.looks"
+    },
+    [ACCENT_SOUNDS]: {
+        defaultMessage: "Sounds",
+        description:
+            "Name of the Sounds color scheme, should be the same as the palette name.",
+        id: "bm.accent.sound"
+    },
+    [ACCENT_EVENTS]: {
+        defaultMessage: "Events",
+        description:
+            "Name of the Events color scheme, should be the same as the palette name.",
+        id: "bm.accent.events"
+    },
+    [ACCENT_CONTROL]: {
+        defaultMessage: "Control",
+        description:
+            "Name of the Control color scheme, should be the same as the palette name.",
+        id: "bm.accent.control"
+    },
+    [ACCENT_SENSING]: {
+        defaultMessage: "Sensing",
+        description:
+            "Name of the Sensing color scheme, should be the same as the palette name.",
+        id: "bm.accent.sensing"
+    },
+    [ACCENT_OPERATORS]: {
+        defaultMessage: "Operators",
+        description:
+            "Name of the Operators color scheme, should be the same as the palette name.",
+        id: "bm.accent.operators"
+    },
+    [ACCENT_VARIABLES]: {
+        defaultMessage: "Variables",
+        description:
+            "Name of the Variables color scheme, should be the same as the palette name.",
+        id: "bm.accent.variables"
+    },
+    [ACCENT_LISTS]: {
+        defaultMessage: "Lists",
+        description:
+            "Name of the Lists color scheme, should be the same as the palette name.",
+        id: "bm.accent.lists"
+    },
+    [ACCENT_MY_BLOCKS]: {
+        defaultMessage: "My Blocks",
+        description:
+            "Name of the My Blocks color scheme, should be the same as the palette name.",
+        id: "bm.accent.my_blocks"
+    },
+    [ACCENT_EXTENSIONS]: {
+        defaultMessage: "Extensions",
+        description:
+            "Name of the Extensions color scheme, should be the same as the palette name.",
+        id: "bm.accent.extensions"
     },
     [ACCENT_RAINBOW]: {
         defaultMessage: "Rainbow",
-        description: "Name of color scheme that uses a rainbow.",
-        id: "tw.accent.rainbow",
-    },
+        description:
+            "Name of the Rainbow color scheme.",
+        id: "bm.accent.rainbow"
+    }
 });
 
 const icons = {
