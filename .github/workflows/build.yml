@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - develop
+    paths-ignore:
+      - "*/**.md"
+      - ".editorconfig"
   workflow_dispatch:
 
 permissions:
