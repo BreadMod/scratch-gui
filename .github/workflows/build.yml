@@ -1,0 +1,43 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+    contents: read
+
+concurrency:
+    group: pages-deploy
+    cancel-in-progress: true
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v5
+              with:
+                fetch-depth: 0
+            
+            - name: Setup Node.js
+              uses: actions/setup-node@v5
+              with:
+                node-version: 22
+                cache: npm
+            
+            - name: Install dependencies
+              run: npm ci
+            
+            - name: Build
+              run: npm run build
+            
+            - name: Deploy to Cloudflare Pages
+              uses: cloudflare/wrangler-action@v3
+              with:
+                apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+                accountId: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
+                command: pages deploy build --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT }}
