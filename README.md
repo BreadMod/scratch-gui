@@ -31,7 +31,7 @@ npm start
 npm run build
 ```
 
-# License
+## License
 BreadMod's (and TurboWarp's) modifications to Scratch are licensed under the GNU General Public License v3.0. See LICENSE or [the GPL 3.0 license](https://www.gnu.org/licenses/gpl-3.0.html) for details.
 
 The following is the original license for scratch-gui, which we are required to retain. This is NOT the license of this project.
