@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>User Pages Not Supported</title>
+  <meta charset="utf8">
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      border-top: 5px solid #e8ae68;
+      margin: 0; padding: 0;
+    }
+    header {
+      background-color: #e8ae68;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+    }
+    main {
+      max-width: 600px;
+      margin: auto;
+    }
+    @media (prefers-color-scheme: dark) {
+      body { background: #111; color: #eee; }
+      a { color: #4af; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>User Pages Not Supported</h1>
+  </header>
+  <main>
+    <p>BreadMod is for viewing/creating projects. You can view users on <a href="https://scratch.mit.edu/" class="scratch-link">the Scratch website</a> instead.</p>
+    <p>If you're trying to find a user's unshared projects or view the projects of deleted users, this has not been possible for years.</p>
+    <p>Questions and concerns can be sent to <a href="https://github.com/orgs/BreadMod/discussions/1">the usual place</a>.</p>
+    <script>
+      (function() {
+        'use strict';
+        var user = location.pathname.split('/')[2];
+        var link = document.querySelector('.scratch-link');
+        if (user) {
+          link.href = 'https://scratch.mit.edu/users/' + user;
+        }
+      }());
+    </script>
+  </main>
+</body>
+</html>
