@@ -587,6 +587,18 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
                 </shadow>
             </value>
         </block>
+        <block type="operator_floor_divide">
+            <value name="NUM1">
+                <shadow type="math_number">
+                    <field name="NUM"/>
+                </shadow>
+            </value>
+            <value name="NUM2">
+                <shadow type="math_number">
+                    <field name="NUM"/>
+                </shadow>
+            </value>
+        </block>
         ${blockSeparator}
         <block type="operator_random">
             <value name="FROM">
@@ -597,6 +609,23 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
             <value name="TO">
                 <shadow type="math_number">
                     <field name="NUM">10</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operator_advanced_random">
+            <value name="FROM">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="TO">
+                <shadow type="math_number">
+                    <field name="NUM">10</field>
+                </shadow>
+            </value>
+            <value name="STEP">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
                 </shadow>
             </value>
         </block>
@@ -626,6 +655,42 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
             </value>
         </block>
         <block type="operator_equals">
+            <value name="OPERAND1">
+                <shadow type="text">
+                    <field name="TEXT"/>
+                </shadow>
+            </value>
+            <value name="OPERAND2">
+                <shadow type="text">
+                    <field name="TEXT">50</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operator_gte">
+            <value name="OPERAND1">
+                <shadow type="text">
+                    <field name="TEXT"/>
+                </shadow>
+            </value>
+            <value name="OPERAND2">
+                <shadow type="text">
+                    <field name="TEXT">50</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operator_lte">
+            <value name="OPERAND1">
+                <shadow type="text">
+                    <field name="TEXT"/>
+                </shadow>
+            </value>
+            <value name="OPERAND2">
+                <shadow type="text">
+                    <field name="TEXT">50</field>
+                </shadow>
+            </value>
+        </block>
+        <block type="operator_not_equals">
             <value name="OPERAND1">
                 <shadow type="text">
                     <field name="TEXT"/>
@@ -688,6 +753,13 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
             </block>
         `}
         ${blockSeparator}
+        <block type="operator_negate">
+            <value name="OPERAND">
+                <shadow type="math_number">
+                    <field name="NUM"/>
+                </shadow>
+            </value>
+        </block>
         <block type="operator_mod">
             <value name="NUM1">
                 <shadow type="math_number">
@@ -716,6 +788,10 @@ const operators = function (isInitialSetup, isStage, targetId, colors) {
             </value>
         </block>
         ${categorySeparator}
+        <block type="operator_true">
+        </block>
+        <block type="operator_false">
+        </block>
     </category>
     `;
 };
